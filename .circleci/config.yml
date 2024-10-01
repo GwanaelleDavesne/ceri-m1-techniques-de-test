@@ -35,7 +35,7 @@ workflows:
   version: 2
   sample-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     when:
-	branch: master
+      branch: master
     jobs:
       - build-and-test
    
