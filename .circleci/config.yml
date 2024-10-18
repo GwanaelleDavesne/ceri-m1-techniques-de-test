@@ -43,8 +43,9 @@ workflows:
   sample-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     when:
       branch: master
-    upload-to-codecov:
-      jobs:
-        - build-and-test
-        - upload-codecov
+    jobs:
+      - build-and-test
+      - codecov/upload:
+        requires:
+          - build-and-test
    
