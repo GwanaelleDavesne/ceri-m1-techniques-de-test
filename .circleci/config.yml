@@ -33,7 +33,7 @@ jobs:
           command: cd TP-techniques-de-test && mvn test jacoco:report
       - run:
           name: Upload coverage to Codecov 
-          command: bash <(curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
           
 
 # Orchestrate jobs using workflows
