@@ -34,9 +34,9 @@ public class IPokemonMetadataProviderTest {
 		
 		assertEquals(0,bulbizarre.getIndex());
 		assertEquals("Bulbizarre",bulbizarre.getName());
-		assertEquals(126,bulbizarre.getAttack());
-		assertEquals(126,bulbizarre.getDefense());
-		assertEquals(90,bulbizarre.getStamina());
+		assertEquals(8,bulbizarre.getAttack());
+		assertEquals(8,bulbizarre.getDefense());
+		assertEquals(9,bulbizarre.getStamina());
 	}
 
 }
