@@ -15,15 +15,13 @@ public class IPokemonMetadataProviderTest {
 	
 	@BeforeEach
 	void setup() {
-		pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+		pokemonMetadataProvider = new PokemonMetadataProvider();
 	}
 	
 	
 	@Test
 	void getPokemonMetadaInvalidIndexTest() throws PokedexException{
 		//test pour vérifier qu'un numéro d'index invalide lance une exception
-		when(pokemonMetadataProvider.getPokemonMetadata(151)).thenThrow(new PokedexException("Invalid Index"));
-		
 		assertThrows(PokedexException.class, () -> {
 			pokemonMetadataProvider.getPokemonMetadata(151);
 		});
@@ -32,8 +30,6 @@ public class IPokemonMetadataProviderTest {
 	@Test
 	void getPokemonMetadaTest() throws PokedexException{
 		//test pour vérifier que cela retourne les métadonnées correctes
-		when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
-		
 		PokemonMetadata bulbizarre = pokemonMetadataProvider.getPokemonMetadata(0);
 		
 		assertEquals(0,bulbizarre.getIndex());
