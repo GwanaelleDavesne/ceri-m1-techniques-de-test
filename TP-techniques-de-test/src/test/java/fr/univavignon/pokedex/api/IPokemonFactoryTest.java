@@ -61,5 +61,19 @@ public class IPokemonFactoryTest {
 	    assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 100);
 	    assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 100);
 	}
+	
+	@Test
+	void createPokemonInvalidIndexTest(){
+		//test pour vérifier la création d'un Pokemon avec un Index qui n'est pas dans aMap
+		Pokemon pokemon = pokemonFactory.createPokemon(3,613,64,4000,4);
+		
+		assertEquals(3,pokemon.getIndex());
+		assertEquals("Bulbizarre",pokemon.getName());
+		assertEquals(613,pokemon.getCp());
+		assertEquals(64,pokemon.getHp());
+		assertEquals(4000,pokemon.getDust());
+		assertEquals(4,pokemon.getCandy());
+		assertEquals(1,pokemon.getIv());
+	}
 
 }
