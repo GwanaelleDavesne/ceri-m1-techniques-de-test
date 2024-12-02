@@ -10,6 +10,6 @@ Badge pour CircleCI :
 Badge pour la couverture de test:
 [![codecov](https://codecov.io/github/GwanaelleDavesne/ceri-m1-techniques-de-test/graph/badge.svg?token=GV7D682B79)](https://codecov.io/github/GwanaelleDavesne/ceri-m1-techniques-de-test)
 
-Badge pour checkout : 
+Badge pour Checkstyle : 
 ![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
 
