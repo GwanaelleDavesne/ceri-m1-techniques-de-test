@@ -45,6 +45,23 @@ jobs:
       - run:
           name: Upload coverage to Codecov 
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+      - run:
+          name: Générer la Javadoc
+          command: mvn javadoc:javadoc    
+      - run:
+          name: Créer un dépôt Git temporaire pour GitHub Pages
+          command: |
+            git config --global user.name "CircleCI"
+            git config --global user.email "circleci@example.com"
+            git init
+            git remote add origin https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            git checkout -b gh-pages
+            mkdir -p docs
+            cp -r target/site/apidocs/* docs/
+            git add .
+            git commit -m "Déploiement de la Javadoc"
+            git push --force origin gh-pages
+
           
 
 # Orchestrate jobs using workflows
