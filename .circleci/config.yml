@@ -49,14 +49,22 @@ jobs:
           name: Generate Javadoc
           command: cd TP-techniques-de-test && mvn javadoc:javadoc    
       - run:
+          name: List files in apidocs
+          command: ls -l target/site/apidocs/
+      
+      - run:
+          name: Wait for Javadoc generation
+          command: sleep 10
+      
+      - run:
           name: Publish Javadoc to GitHub Pages
           command: |
             git config --global user.name "CircleCI"
             git config --global user.email "circleci@example.com"
             git init
-            git remote remove origin || true # Retire l'ancien remote si il existe déjà
+            git remote remove origin || true
             git remote add origin https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
-            git fetch origin || true # Si le remote existe déjà, il peut y avoir des données à récupérer
+            git fetch origin || true
             git checkout -b gh-pages
             mkdir -p docs
             cp -r target/site/apidocs/* docs/
