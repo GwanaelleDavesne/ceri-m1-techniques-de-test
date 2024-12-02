@@ -54,7 +54,9 @@ jobs:
             git config --global user.name "CircleCI"
             git config --global user.email "circleci@example.com"
             git init
+            git remote remove origin || true # Retire l'ancien remote si il existe déjà
             git remote add origin https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            git fetch origin || true # Si le remote existe déjà, il peut y avoir des données à récupérer
             git checkout -b gh-pages
             mkdir -p docs
             cp -r target/site/apidocs/* docs/
