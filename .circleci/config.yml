@@ -48,13 +48,6 @@ jobs:
       - run:
           name: Generate Javadoc
           command: cd TP-techniques-de-test && mvn javadoc:javadoc    
-      - run:
-          name: List files in apidocs
-          command: ls -l target/site/apidocs/
-      
-      - run:
-          name: Wait for Javadoc generation
-          command: sleep 10
       
       - run:
           name: Publish Javadoc to GitHub Pages
