@@ -46,10 +46,10 @@ jobs:
           name: Upload coverage to Codecov 
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
       - run:
-          name: Générer la Javadoc
-          command: mvn javadoc:javadoc    
+          name: Generate Javadoc
+          command: cd TP-techniques-de-test && mvn javadoc:javadoc    
       - run:
-          name: Créer un dépôt Git temporaire pour GitHub Pages
+          name: Publish Javadoc to GitHub Pages
           command: |
             git config --global user.name "CircleCI"
             git config --global user.email "circleci@example.com"
