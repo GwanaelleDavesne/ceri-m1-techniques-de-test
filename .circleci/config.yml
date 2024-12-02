@@ -52,6 +52,7 @@ jobs:
       - run:
           name: Publish Javadoc to GitHub Pages
           command: |
+            cd TP-techniques-de-test
             git config --global user.name "CircleCI"
             git config --global user.email "circleci@example.com"
             git init
