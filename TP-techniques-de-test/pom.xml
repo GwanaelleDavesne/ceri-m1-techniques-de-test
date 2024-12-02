@@ -26,24 +26,27 @@ http://maven.apache.org/maven-v4_0_0.xsd"
 			</executions>
 			</plugin>
 			<plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-checkstyle-plugin</artifactId>
-			    <version>3.2.0</version>
-			    <executions>
-			        <execution>
-			            <phase>verify</phase>
-			            <goals>
-			                <goal>check</goal>
-			            </goals>
-			        </execution>
-			    </executions>
-			    <configuration>
-			        <configLocation>google_checks.xml</configLocation> 
-			        <encoding>UTF-8</encoding>
-			        <consoleOutput>true</consoleOutput>
-			        <failOnViolation>true</failOnViolation> 
-			    </configuration>
-			</plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-checkstyle-plugin</artifactId>
+		            <version>3.2.0</version>
+		            <executions>
+		                <execution>
+		                    <phase>verify</phase>
+		                    <goals>
+		                        <goal>check</goal>
+		                    </goals>
+		                </execution>
+		            </executions>
+		            <configuration>
+		                <configLocation>google_checks.xml</configLocation>
+		                <encoding>UTF-8</encoding>
+		                <consoleOutput>true</consoleOutput>
+		                <failOnViolation>true</failOnViolation>
+		                <additionalProperties>
+		                    <property name="checkstyle.javadoc.enabled" value="true"/>
+		                </additionalProperties>
+		            </configuration>
+		        </plugin>
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-javadoc-plugin</artifactId>
