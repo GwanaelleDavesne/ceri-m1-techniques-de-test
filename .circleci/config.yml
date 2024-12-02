@@ -32,6 +32,9 @@ jobs:
           name: Unit Tests 
           command: cd TP-techniques-de-test && mvn test jacoco:report
       - run:
+          name: Run Checkstyle
+          command: cd TP-techniques-de-test && mvn checkstyle:checkstyle    
+      - run:
           name: Upload coverage to Codecov 
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
           
