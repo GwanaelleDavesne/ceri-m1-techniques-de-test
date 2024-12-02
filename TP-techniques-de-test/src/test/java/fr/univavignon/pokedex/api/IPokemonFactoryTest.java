@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -49,6 +50,16 @@ public class IPokemonFactoryTest {
 		assertEquals(4000,pokemon.getDust());
 		assertEquals(4,pokemon.getCandy());
 		assertEquals(0,pokemon.getIv());
+	}
+	
+	@Test
+	void generateRandomStatTest() {
+	    //test pour vérifier que les statistiques générées sont dans une bonne intervalle
+	    Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+	    assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 100);
+	    assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 100);
+	    assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 100);
 	}
 
 }
