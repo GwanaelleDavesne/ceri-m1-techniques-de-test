@@ -13,3 +13,8 @@ Badge pour la couverture de test:
 Badge pour Checkstyle : 
 ![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
 
+Badge pour la Javadoc :
+![Javadoc Status](https://img.shields.io/badge/Javadoc-Generated-brightgreen)
+
+
+
