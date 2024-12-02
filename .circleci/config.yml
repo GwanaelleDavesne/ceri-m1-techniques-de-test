@@ -33,7 +33,15 @@ jobs:
           command: cd TP-techniques-de-test && mvn test jacoco:report
       - run:
           name: Run Checkstyle
-          command: cd TP-techniques-de-test && mvn checkstyle:checkstyle    
+          command: cd TP-techniques-de-test && mvn checkstyle:checkstyle 
+      - run:
+          name: Update Checkstyle Badge in README
+          command: |
+            if grep -q "Checkstyle-Passing" README.md; then
+              sed -i 's/Checkstyle-Passing/Checkstyle-Failing/g' README.md;
+            else
+              echo "Checkstyle-Passing badge update skipped";
+            fi    
       - run:
           name: Upload coverage to Codecov 
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
