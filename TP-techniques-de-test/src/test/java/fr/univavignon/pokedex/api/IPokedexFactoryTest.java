@@ -1,11 +1,9 @@
 package fr.univavignon.pokedex.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 
 public class IPokedexFactoryTest {
@@ -14,19 +12,17 @@ public class IPokedexFactoryTest {
 	
 	@BeforeEach
 	void setup() {
-		pokedexFactory = Mockito.mock(IPokedexFactory.class);
+		pokedexFactory = new PokedexFactory();
 	}
 	
 	@Test
 	void createPokedexTest() {
 		//test pour vérifier la création correcte d'un pokedex
-		IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
-		IPokedex pokedex = Mockito.mock(IPokedex.class);
-		IPokemonFactory pokemonFactory = Mockito.mock(IPokemonFactory.class);
-		when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
+		IPokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
+		IPokemonFactory pokemonFactory = new PokemonFactory(pokemonMetadataProvider);
 		
 		IPokedex createdPokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
-		assertEquals(pokedex, createdPokedex);
+		assertNotNull(createdPokedex);
 	
 	}
 
