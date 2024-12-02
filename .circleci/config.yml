@@ -57,7 +57,7 @@ jobs:
             git config --global user.email "circleci@example.com"
             git init
             git remote remove origin || true
-            git remote add origin https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            git remote add origin https://$GH_TOKEN@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             git fetch origin || true
             git checkout -b gh-pages
             mkdir -p docs
